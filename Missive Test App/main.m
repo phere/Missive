@@ -9,10 +9,12 @@
 #import <Cocoa/Cocoa.h>
 
 #import "ErrorReporter.h"
+#import "Publisher.h"
 
 int main(int argc, char *argv[])
 {
 	[ErrorReporter start];
+	[Publisher start];
 	
 	return NSApplicationMain(argc, (const char **)argv);
 }

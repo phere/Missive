@@ -29,6 +29,8 @@
 		4A9B747C172A45E000589802 /* ErrorReporter.h in Headers */ = {isa = PBXBuildFile; fileRef = 4A9B747A172A45E000589802 /* ErrorReporter.h */; };
 		4A9B747D172A45E000589802 /* ErrorReporter.mm in Sources */ = {isa = PBXBuildFile; fileRef = 4A9B747B172A45E000589802 /* ErrorReporter.mm */; };
 		4A9B747E172A4AED00589802 /* libMissive.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 4A9B740A172A166E00589802 /* libMissive.a */; };
+		4A9B7481172A619D00589802 /* Publisher.h in Headers */ = {isa = PBXBuildFile; fileRef = 4A9B747F172A619D00589802 /* Publisher.h */; };
+		4A9B7482172A619D00589802 /* Publisher.mm in Sources */ = {isa = PBXBuildFile; fileRef = 4A9B7480172A619D00589802 /* Publisher.mm */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -60,6 +62,8 @@
 		4A9B7477172A42A700589802 /* ErrorReporter.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = ErrorReporter.hpp; sourceTree = "<group>"; };
 		4A9B747A172A45E000589802 /* ErrorReporter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ErrorReporter.h; sourceTree = "<group>"; };
 		4A9B747B172A45E000589802 /* ErrorReporter.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = ErrorReporter.mm; sourceTree = "<group>"; };
+		4A9B747F172A619D00589802 /* Publisher.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Publisher.h; sourceTree = "<group>"; };
+		4A9B7480172A619D00589802 /* Publisher.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = Publisher.mm; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -155,6 +159,8 @@
 				4A9B744C172A26E000589802 /* Dispatcher.mm */,
 				4A9B747A172A45E000589802 /* ErrorReporter.h */,
 				4A9B747B172A45E000589802 /* ErrorReporter.mm */,
+				4A9B747F172A619D00589802 /* Publisher.h */,
+				4A9B7480172A619D00589802 /* Publisher.mm */,
 			);
 			path = MissiveObjc;
 			sourceTree = "<group>";
@@ -210,6 +216,7 @@
 			files = (
 				4A9B744D172A26E000589802 /* Dispatcher.h in Headers */,
 				4A9B747C172A45E000589802 /* ErrorReporter.h in Headers */,
+				4A9B7481172A619D00589802 /* Publisher.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -326,6 +333,7 @@
 			files = (
 				4A9B744E172A26E000589802 /* Dispatcher.mm in Sources */,
 				4A9B747D172A45E000589802 /* ErrorReporter.mm in Sources */,
+				4A9B7482172A619D00589802 /* Publisher.mm in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -455,6 +463,8 @@
 			buildSettings = {
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "MissiveObjc/MissiveObjc-Prefix.pch";
+				HEADER_SEARCH_PATHS = /usr/local/include;
+				LIBRARY_SEARCH_PATHS = /usr/local/lib;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Debug;
@@ -464,6 +474,8 @@
 			buildSettings = {
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "MissiveObjc/MissiveObjc-Prefix.pch";
+				HEADER_SEARCH_PATHS = /usr/local/include;
+				LIBRARY_SEARCH_PATHS = /usr/local/lib;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Release;
