@@ -1,0 +1,8 @@
+//
+// Prefix header for all source files of the 'Missive Test App' target in the 'Missive Test App' project
+//
+
+#ifdef __OBJC__
+	#import <Cocoa/Cocoa.h>
+	#import <Foundation/Foundation.h>
+#endif
