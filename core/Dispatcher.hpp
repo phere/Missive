@@ -13,9 +13,6 @@ namespace Missive
 	class Dispatcher
 	{
 	public:
-		Dispatcher();
-		virtual ~Dispatcher();
-		
 		void send(std::string const& message);
 		
 	protected:

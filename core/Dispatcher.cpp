@@ -38,14 +38,14 @@ namespace
 	
 	void* getDispatchSocket()
 	{
-		Missive::DispatchThread::start();
+		const std::string dispatchEndpoint(Missive::DispatchThread::getDispatchEndpoint());
 		
 		Missive::Context context;
 		ZMQSocketWrapper *wrapper = dispatchSocket.get();
 		if (wrapper == NULL) {
 			wrapper = new ZMQSocketWrapper;
 			wrapper->socket = zmq_socket(context.getContext(), ZMQ_PUSH);
-			zmq_connect(wrapper->socket, "inproc://dispatch");
+			zmq_connect(wrapper->socket, dispatchEndpoint.c_str());
 			dispatchSocket.reset(wrapper);
 		}
 		return wrapper->socket;
@@ -54,13 +54,6 @@ namespace
 
 //-----------------------------------------------------------------------------
 // Dispatcher class implementation
-
-Missive::Dispatcher::Dispatcher()
-{}
-
-Missive::Dispatcher::~Dispatcher()
-{}
-
 void Missive::Dispatcher::send(std::string const& message)
 {
 	void* socket = getDispatchSocket();

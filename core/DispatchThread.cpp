@@ -15,6 +15,7 @@
 // system and library headers
 #include <boost/thread/once.hpp>
 #include <boost/thread/thread.hpp>
+#include <boost/thread/barrier.hpp>
 #include <zmq.h>
 
 //-----------------------------------------------------------------------------
@@ -28,28 +29,23 @@ namespace
 	
 	boost::thread* dispatchThreadHandle = NULL;
 	boost::once_flag dispatchThreadFlag;
-	boost::mutex dispatchThreadReadyMutex;
-	boost::condition_variable dispatchThreadReadyCV;
-	volatile bool dispatchThreadReady = false;
 	
+	std::string dispatchEndpoint;
 	std::string publisherEndpoint;
 	
-	void dispatchThread()
+	void dispatchThread(boost::barrier &launchBarrier)
 	{
 		Missive::Context context;
+		dispatchEndpoint = "inproc://dispatch";
 		void *dispatchReceiveSocket = zmq_socket(context.getContext(), ZMQ_PULL);
-		zmq_bind(dispatchReceiveSocket, "inproc://dispatch");
+		zmq_bind(dispatchReceiveSocket, dispatchEndpoint.c_str());
 		
 		publisherEndpoint = "inproc://publish";
 		void *dispatchPubSocket = zmq_socket(context.getContext(), ZMQ_PUB);
 		zmq_bind(dispatchPubSocket, publisherEndpoint.c_str());
 		
+		launchBarrier.wait();
 		
-		{// release waiting threads
-			boost::unique_lock<boost::mutex> dispatchThreadReadyLock(dispatchThreadReadyMutex);
-			dispatchThreadReady = true;
-			dispatchThreadReadyCV.notify_all();
-		}
 		char buffer[4096];
 		while (true) {
 			size_t msgSize = zmq_recv(dispatchReceiveSocket, buffer, sizeof(buffer), 0);
@@ -61,25 +57,28 @@ namespace
 	
 	void launchDispatchThread()
 	{
-		dispatchThreadHandle = new boost::thread(dispatchThread);
-		{// wait for the socket to be bound
-			boost::unique_lock<boost::mutex> dispatchThreadReadyLock(dispatchThreadReadyMutex);
-			while (!dispatchThreadReady) {
-				dispatchThreadReadyCV.wait(dispatchThreadReadyLock);
-			}
-		}
+		boost::barrier launchBarrier(2);
+		dispatchThreadHandle = new boost::thread(boost::bind(dispatchThread,
+															 boost::ref(launchBarrier)));
+		launchBarrier.wait();
+	}
+	
+	void checkIsLaunched()
+	{
+		boost::call_once(dispatchThreadFlag, launchDispatchThread);
 	}
 }
 
 //-----------------------------------------------------------------------------
 // DispatchThread class implementation
-void Missive::DispatchThread::start()
+std::string Missive::DispatchThread::getDispatchEndpoint()
 {
-	boost::call_once(dispatchThreadFlag, launchDispatchThread);
+	checkIsLaunched();
+	return dispatchEndpoint;
 }
 
 std::string Missive::DispatchThread::getPublisherEndpoint()
 {
-	start();
+	checkIsLaunched();
 	return publisherEndpoint;
 }

@@ -13,7 +13,7 @@ namespace Missive
 	class DispatchThread
 	{
 	public:
-		static void start();
+		static std::string getDispatchEndpoint();
 		static std::string getPublisherEndpoint();
 	};
 }

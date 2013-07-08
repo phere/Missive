@@ -29,11 +29,11 @@ namespace
 	boost::thread* errorReporterThreadHandle = NULL;
 	void errorReporterThread()
 	{
-		Missive::DispatchThread::start();
+		const std::string publisherEndpoint(Missive::DispatchThread::getPublisherEndpoint());
 		Missive::Context context;
 		
 		void* socket = zmq_socket(context.getContext(), ZMQ_SUB);
-		zmq_connect(socket, "inproc://publish");
+		zmq_connect(socket, publisherEndpoint.c_str());
 		zmq_setsockopt(socket, ZMQ_SUBSCRIBE, NULL, 0);
 		
 		char buffer[4096];
