@@ -14,9 +14,10 @@
 #include "Dispatcher.hpp"
 
 // system and library headers
-#include <boost/thread/once.hpp>
-#include <boost/thread/thread.hpp>
 #include <zmq.h>
+#include <thread>
+#include <iostream>
+#include <mutex>
 
 //-----------------------------------------------------------------------------
 // static code and helpers
@@ -26,7 +27,7 @@ namespace
 	// constants
 
 	// helper functions and classes
-	boost::thread* errorReporterThreadHandle = NULL;
+	std::thread* errorReporterThreadHandle = NULL;
 	void errorReporterThread()
 	{
 		Missive::Dispatcher& dispatcher = Missive::Context::sharedContext().getDispatcher();
@@ -62,10 +63,10 @@ namespace
 		dispatcher.unsubscribe(socket);
 	}
 	
-	boost::once_flag errorReporterStartedFlag;
+	std::once_flag errorReporterStartedFlag;
 	void startErrorReporter()
 	{
-		errorReporterThreadHandle = new boost::thread(errorReporterThread);
+		errorReporterThreadHandle = new std::thread(errorReporterThread);
 	}
 }
 
@@ -73,5 +74,5 @@ namespace
 // ErrorReporter class implementation
 void Missive::ErrorReporter::start()
 {
-	boost::call_once(errorReporterStartedFlag, startErrorReporter);
+	std::call_once(errorReporterStartedFlag, startErrorReporter);
 }

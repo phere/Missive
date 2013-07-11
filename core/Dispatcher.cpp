@@ -14,8 +14,8 @@
 #include "DispatchThread.hpp"
 
 // system and library headers
-#include <boost/thread/tss.hpp>
 #include <zmq.h>
+#include <thread>
 
 //-----------------------------------------------------------------------------
 // static code and helpers
@@ -34,7 +34,7 @@ namespace
 		}
 		void *socket;
 	};
-	boost::thread_specific_ptr<ZMQSocketWrapper> dispatchSocket;
+	std::__thread_specific_ptr<ZMQSocketWrapper> dispatchSocket;
 	
 	void* getDispatchSocket(void *context, Missive::detail::DispatchThread *dispatchThread)
 	{

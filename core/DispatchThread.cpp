@@ -13,10 +13,8 @@
 #import "Context.hpp"
 
 // system and library headers
-#include <boost/thread/once.hpp>
-#include <boost/thread/thread.hpp>
-#include <boost/thread/barrier.hpp>
 #include <zmq.h>
+#include <functional>
 
 //-----------------------------------------------------------------------------
 // static code and helpers
@@ -40,13 +38,14 @@ Missive::detail::DispatchThread::DispatchThread(void *context_)
 
 void Missive::detail::DispatchThread::launch()
 {
-	boost::barrier launchBarrier(2);
-	dispatchThreadHandle = new boost::thread(boost::bind(&Missive::detail::DispatchThread::main, this,
-														 boost::ref(launchBarrier)));
-	launchBarrier.wait();
+	std::promise<void> willLaunch;
+	std::future<void> launched(willLaunch.get_future());
+	dispatchThreadHandle = new std::thread(std::bind(&Missive::detail::DispatchThread::main, this,
+													 std::ref(willLaunch)));
+	launched.wait();
 }
 
-void Missive::detail::DispatchThread::main(boost::barrier &launchBarrier)
+void Missive::detail::DispatchThread::main(std::promise<void> &launchBarrier)
 {
 	dispatchEndpoint = "inproc://dispatch";
 	void *dispatchReceiveSocket = zmq_socket(context, ZMQ_PULL);
@@ -55,9 +54,10 @@ void Missive::detail::DispatchThread::main(boost::barrier &launchBarrier)
 	publisherEndpoint = "inproc://publish";
 	void *dispatchPubSocket = zmq_socket(context, ZMQ_PUB);
 	zmq_bind(dispatchPubSocket, publisherEndpoint.c_str());
+	std::promise<bool> promise;
 	
-	launchBarrier.wait();
-	
+	launchBarrier.set_value();
+
 	char buffer[4096];
 	while (true) {
 		size_t msgSize = zmq_recv(dispatchReceiveSocket, buffer, sizeof(buffer), 0);

@@ -218,10 +218,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				EXECUTABLE_PREFIX = lib;
-				HEADER_SEARCH_PATHS = (
-					/usr/local/include,
-					"\"$(HOME)/Code/boost_1_53_0\"",
-				);
+				HEADER_SEARCH_PATHS = /usr/local/include;
 				LIBRARY_SEARCH_PATHS = /usr/local/lib;
 				OTHER_LDFLAGS = "-lzmq";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -232,10 +229,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				EXECUTABLE_PREFIX = lib;
-				HEADER_SEARCH_PATHS = (
-					/usr/local/include,
-					"\"$(HOME)/Code/boost_1_53_0\"",
-				);
+				HEADER_SEARCH_PATHS = /usr/local/include;
 				LIBRARY_SEARCH_PATHS = /usr/local/lib;
 				OTHER_LDFLAGS = "-lzmq";
 				PRODUCT_NAME = "$(TARGET_NAME)";

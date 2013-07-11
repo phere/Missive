@@ -8,11 +8,8 @@
 
 #include <string>
 
-namespace boost
-{
-	class thread;
-	class barrier;
-}
+#include <future>
+#include <thread>
 
 namespace Missive
 {
@@ -28,12 +25,12 @@ namespace Missive
 			
 		private:
 			void launch();
-			void main(boost::barrier &launchBarrier);
+			void main(std::promise<void> &launchBarrier);
 			
 			std::string dispatchEndpoint;
 			std::string publisherEndpoint;
 			
-			boost::thread *dispatchThreadHandle;
+			std::thread *dispatchThreadHandle;
 			void *context;
 		};
 	}
