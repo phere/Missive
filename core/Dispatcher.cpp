@@ -16,6 +16,7 @@
 // system and library headers
 #include <zmq.h>
 #include <thread>
+#include <iostream>
 
 //-----------------------------------------------------------------------------
 // static code and helpers
@@ -70,8 +71,16 @@ void Missive::Dispatcher::send(std::string const& message)
 void *Missive::Dispatcher::subscribe()
 {
 	void *subSocket = zmq_socket(context, ZMQ_SUB);
-	zmq_connect(subSocket, dispatchThread->getPublisherEndpoint().c_str());
-	zmq_setsockopt(subSocket, ZMQ_SUBSCRIBE, NULL, 0);
+	int connectResult = zmq_connect(subSocket, dispatchThread->getPublisherEndpoint().c_str());
+	if (connectResult != 0) {
+		std::cerr << "Could not connect socket to dispatcher. Connect result: " << connectResult << " errno:" << errno << std::endl;
+		return nullptr;
+	}
+	int subscribeResult = zmq_setsockopt(subSocket, ZMQ_SUBSCRIBE, NULL, 0);
+	if (subscribeResult != 0) {
+		std::cerr << "Could not subscribe to messages. Subscribe result: " << subscribeResult << " errno:" << strerror(errno) << std::endl;
+		return nullptr;
+	}
 	
 	return subSocket;
 }

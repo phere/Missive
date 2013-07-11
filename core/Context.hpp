@@ -20,6 +20,7 @@ namespace Missive
 		
 	private:
 		Context();
+		static void init();
 		Missive::Dispatcher* dispatcher;
 	};
 }

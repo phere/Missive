@@ -32,20 +32,22 @@ namespace
 Missive::detail::DispatchThread::DispatchThread(void *context_)
 : dispatchThreadHandle(nullptr)
 , context(context_)
+, launched(false)
 {
 	launch(); // does not return until the thread is launched and the endpoints assigned
 }
 
 void Missive::detail::DispatchThread::launch()
 {
-	std::promise<void> willLaunch;
-	std::future<void> launched(willLaunch.get_future());
-	dispatchThreadHandle = new std::thread(std::bind(&Missive::detail::DispatchThread::main, this,
-													 std::ref(willLaunch)));
-	launched.wait();
+	dispatchThreadHandle = new std::thread(&Missive::detail::DispatchThread::main, this);
+	
+	std::unique_lock<std::mutex> launchedLock(launchedMutex);
+	while (!launched) {
+		launchedCondition.wait(launchedLock);
+	}
 }
 
-void Missive::detail::DispatchThread::main(std::promise<void> &launchBarrier)
+void Missive::detail::DispatchThread::main()
 {
 	dispatchEndpoint = "inproc://dispatch";
 	void *dispatchReceiveSocket = zmq_socket(context, ZMQ_PULL);
@@ -54,15 +56,22 @@ void Missive::detail::DispatchThread::main(std::promise<void> &launchBarrier)
 	publisherEndpoint = "inproc://publish";
 	void *dispatchPubSocket = zmq_socket(context, ZMQ_PUB);
 	zmq_bind(dispatchPubSocket, publisherEndpoint.c_str());
-	std::promise<bool> promise;
 	
-	launchBarrier.set_value();
+	{
+		std::unique_lock<std::mutex> launchLock(launchedMutex);
+		launched = true;
+		launchedCondition.notify_all();
+	}
 
 	char buffer[4096];
 	while (true) {
-		size_t msgSize = zmq_recv(dispatchReceiveSocket, buffer, sizeof(buffer), 0);
+		int result = zmq_recv(dispatchReceiveSocket, buffer, sizeof(buffer), 0);
+		if (result < 1) {
+			continue;
+		}
+		size_t msgSize = (size_t)result;
 		if (msgSize > 0) {
-			zmq_send(dispatchPubSocket, buffer, msgSize, 0);
+			zmq_send(dispatchPubSocket, buffer, std::min(msgSize, sizeof(buffer)), 0);
 		}
 	}
 }

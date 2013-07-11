@@ -8,8 +8,8 @@
 
 #include <string>
 
-#include <future>
 #include <thread>
+#include <mutex>
 
 namespace Missive
 {
@@ -25,13 +25,17 @@ namespace Missive
 			
 		private:
 			void launch();
-			void main(std::promise<void> &launchBarrier);
+			void main();
 			
 			std::string dispatchEndpoint;
 			std::string publisherEndpoint;
 			
 			std::thread *dispatchThreadHandle;
 			void *context;
+			
+			bool launched;
+			std::mutex launchedMutex;
+			std::condition_variable launchedCondition;
 		};
 	}
 }

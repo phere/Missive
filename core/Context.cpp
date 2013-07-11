@@ -13,20 +13,23 @@
 #import "Dispatcher.hpp"
 
 // system and library headers
+#import <mutex>
 
 //-----------------------------------------------------------------------------
 // static code and helpers
 // an 'unnamed-namespace' (7.3.1.1) isolates code to this file
 namespace
 {
+	std::once_flag initOnceFlag;
+	Missive::Context* sharedInstance = nullptr;
 }
 
 //-----------------------------------------------------------------------------
 // Context class implementation
 Missive::Context& Missive::Context::sharedContext()
 {
-	static Missive::Context instance;
-	return instance;
+	std::call_once(initOnceFlag, Missive::Context::init);
+	return *sharedInstance;
 }
 
 Missive::Context::Context()
@@ -42,4 +45,10 @@ Missive::Context::~Context()
 Missive::Dispatcher& Missive::Context::getDispatcher()
 {
 	return *dispatcher;
+}
+
+void Missive::Context::init()
+{
+	Missive::Context *newInstance = new Missive::Context();
+	sharedInstance = newInstance;
 }

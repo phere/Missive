@@ -9,7 +9,7 @@
 #include "NetPublisher.hpp"
 
 #import "Dispatcher.hpp"
-
+#import <iostream>
 #import <sstream>
 #import <zmq.h>
 
@@ -20,8 +20,6 @@ Missive::NetPublisher::NetPublisher(Missive::Dispatcher &dispatcher_)
 , pubSocket(nullptr)
 , port(0)
 {
-	subSocket = dispatcher.subscribe();
-	
 	pubSocket = zmq_socket(pubContext, ZMQ_PUB);
 	
 	zmq_bind(pubSocket, "tcp://*:*");
@@ -52,9 +50,16 @@ Missive::NetPublisher::~NetPublisher()
 
 void Missive::NetPublisher::run()
 {
+	subSocket = dispatcher.subscribe();
+	
 	while (true) {
 		zmq_msg_t messageIn;
-		zmq_msg_recv(&messageIn, subSocket, 0);
+		zmq_msg_init(&messageIn);
+		int result = zmq_msg_recv(&messageIn, subSocket, 0);
+		if (result < 1) {
+			std::cerr << "Error; size = " << result << "\t errno:" << errno << std::endl;
+			continue;
+		}
 	
 		size_t length = zmq_msg_size(&messageIn);
 		void *source = zmq_msg_data(&messageIn);
@@ -62,6 +67,7 @@ void Missive::NetPublisher::run()
 		while (zmq_msg_more(&messageIn)) {
 			zmq_send(pubSocket, source, length, ZMQ_SNDMORE);
 			
+			zmq_msg_init(&messageIn);
 			zmq_msg_recv(&messageIn, subSocket, ZMQ_RCVMORE);
 			length = zmq_msg_size(&messageIn);
 			source = zmq_msg_data(&messageIn);
