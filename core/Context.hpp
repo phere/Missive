@@ -8,9 +8,18 @@
 
 namespace Missive
 {
+	class Dispatcher;
+	
 	class Context
 	{
 	public:
-		void* getContext();
+		static Context& sharedContext();
+		~Context();
+		
+		Missive::Dispatcher& getDispatcher();
+		
+	private:
+		Context();
+		Missive::Dispatcher* dispatcher;
 	};
 }

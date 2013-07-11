@@ -26,59 +26,53 @@ namespace
 	// constants
 
 	// helper functions and classes
-	
-	boost::thread* dispatchThreadHandle = NULL;
-	boost::once_flag dispatchThreadFlag;
-	
-	std::string dispatchEndpoint;
-	std::string publisherEndpoint;
-	
-	void dispatchThread(boost::barrier &launchBarrier)
-	{
-		Missive::Context context;
-		dispatchEndpoint = "inproc://dispatch";
-		void *dispatchReceiveSocket = zmq_socket(context.getContext(), ZMQ_PULL);
-		zmq_bind(dispatchReceiveSocket, dispatchEndpoint.c_str());
-		
-		publisherEndpoint = "inproc://publish";
-		void *dispatchPubSocket = zmq_socket(context.getContext(), ZMQ_PUB);
-		zmq_bind(dispatchPubSocket, publisherEndpoint.c_str());
-		
-		launchBarrier.wait();
-		
-		char buffer[4096];
-		while (true) {
-			size_t msgSize = zmq_recv(dispatchReceiveSocket, buffer, sizeof(buffer), 0);
-			if (msgSize > 0) {
-				zmq_send(dispatchPubSocket, buffer, msgSize, 0);
-			}
-		}
-	}
-	
-	void launchDispatchThread()
-	{
-		boost::barrier launchBarrier(2);
-		dispatchThreadHandle = new boost::thread(boost::bind(dispatchThread,
-															 boost::ref(launchBarrier)));
-		launchBarrier.wait();
-	}
-	
-	void checkIsLaunched()
-	{
-		boost::call_once(dispatchThreadFlag, launchDispatchThread);
-	}
+
 }
 
 //-----------------------------------------------------------------------------
 // DispatchThread class implementation
-std::string Missive::DispatchThread::getDispatchEndpoint()
+Missive::detail::DispatchThread::DispatchThread(void *context_)
+: dispatchThreadHandle(nullptr)
+, context(context_)
 {
-	checkIsLaunched();
+	launch(); // does not return until the thread is launched and the endpoints assigned
+}
+
+void Missive::detail::DispatchThread::launch()
+{
+	boost::barrier launchBarrier(2);
+	dispatchThreadHandle = new boost::thread(boost::bind(&Missive::detail::DispatchThread::main, this,
+														 boost::ref(launchBarrier)));
+	launchBarrier.wait();
+}
+
+void Missive::detail::DispatchThread::main(boost::barrier &launchBarrier)
+{
+	dispatchEndpoint = "inproc://dispatch";
+	void *dispatchReceiveSocket = zmq_socket(context, ZMQ_PULL);
+	zmq_bind(dispatchReceiveSocket, dispatchEndpoint.c_str());
+	
+	publisherEndpoint = "inproc://publish";
+	void *dispatchPubSocket = zmq_socket(context, ZMQ_PUB);
+	zmq_bind(dispatchPubSocket, publisherEndpoint.c_str());
+	
+	launchBarrier.wait();
+	
+	char buffer[4096];
+	while (true) {
+		size_t msgSize = zmq_recv(dispatchReceiveSocket, buffer, sizeof(buffer), 0);
+		if (msgSize > 0) {
+			zmq_send(dispatchPubSocket, buffer, msgSize, 0);
+		}
+	}
+}
+
+std::string Missive::detail::DispatchThread::getDispatchEndpoint()
+{
 	return dispatchEndpoint;
 }
 
-std::string Missive::DispatchThread::getPublisherEndpoint()
+std::string Missive::detail::DispatchThread::getPublisherEndpoint()
 {
-	checkIsLaunched();
 	return publisherEndpoint;
 }

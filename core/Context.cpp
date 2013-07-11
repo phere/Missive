@@ -10,31 +10,26 @@
 #import "Context.hpp"
 
 // other headers within the project
+#import "Dispatcher.hpp"
 
 // system and library headers
-#include <boost/thread/once.hpp>
-#include <zmq.h>
 
 //-----------------------------------------------------------------------------
 // static code and helpers
 // an 'unnamed-namespace' (7.3.1.1) isolates code to this file
 namespace
 {
-	// constants
-	void *context = NULL;
-
-	// helper functions and classes
-	boost::once_flag initContextFlag;
-	void initContext()
-	{
-		context = zmq_ctx_new();
-	}
 }
 
 //-----------------------------------------------------------------------------
 // Context class implementation
-void* Missive::Context::getContext()
+Missive::Context& Missive::Context::sharedContext()
 {
-	boost::call_once(initContextFlag, initContext);
-	return context;
+	static Missive::Context instance;
+	return instance;
+}
+
+Missive::Context::Context()
+: dispatcher(new Missive::Dispatcher())
+{
 }

@@ -7,37 +7,21 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4A196663178D9D730035C78B /* NetPublisher.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4A196661178D9D730035C78B /* NetPublisher.cpp */; };
+		4A196664178D9D730035C78B /* NetPublisher.h in Headers */ = {isa = PBXBuildFile; fileRef = 4A196662178D9D730035C78B /* NetPublisher.h */; };
 		4A9B7415172A16D200589802 /* Dispatcher.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4A9B7413172A16D200589802 /* Dispatcher.cpp */; };
 		4A9B7416172A16D200589802 /* Dispatcher.hpp in Headers */ = {isa = PBXBuildFile; fileRef = 4A9B7414172A16D200589802 /* Dispatcher.hpp */; };
 		4A9B7419172A191D00589802 /* Context.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4A9B7417172A191D00589802 /* Context.cpp */; };
 		4A9B741A172A191D00589802 /* Context.hpp in Headers */ = {isa = PBXBuildFile; fileRef = 4A9B7418172A191D00589802 /* Context.hpp */; };
 		4A9B741D172A20D400589802 /* DispatchThread.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4A9B741B172A20D400589802 /* DispatchThread.cpp */; };
 		4A9B741E172A20D400589802 /* DispatchThread.hpp in Headers */ = {isa = PBXBuildFile; fileRef = 4A9B741C172A20D400589802 /* DispatchThread.hpp */; };
-		4A9B743F172A265300589802 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4A9B73F5172A158E00589802 /* Cocoa.framework */; };
-		4A9B7449172A267300589802 /* libMissive.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 4A9B740A172A166E00589802 /* libMissive.a */; };
-		4A9B744D172A26E000589802 /* Dispatcher.h in Headers */ = {isa = PBXBuildFile; fileRef = 4A9B744B172A26E000589802 /* Dispatcher.h */; };
-		4A9B744E172A26E000589802 /* Dispatcher.mm in Sources */ = {isa = PBXBuildFile; fileRef = 4A9B744C172A26E000589802 /* Dispatcher.mm */; };
-		4A9B745B172A2BDF00589802 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4A9B73F5172A158E00589802 /* Cocoa.framework */; };
-		4A9B7461172A2BDF00589802 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 4A9B745F172A2BDF00589802 /* InfoPlist.strings */; };
-		4A9B7463172A2BDF00589802 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A9B7462172A2BDF00589802 /* main.m */; };
-		4A9B7467172A2BDF00589802 /* Credits.rtf in Resources */ = {isa = PBXBuildFile; fileRef = 4A9B7465172A2BDF00589802 /* Credits.rtf */; };
-		4A9B746A172A2BDF00589802 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A9B7469172A2BDF00589802 /* AppDelegate.m */; };
-		4A9B746D172A2BDF00589802 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4A9B746B172A2BDF00589802 /* MainMenu.xib */; };
-		4A9B7471172A2DB000589802 /* libMissiveObjc.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 4A9B743E172A265300589802 /* libMissiveObjc.a */; };
 		4A9B7478172A42A700589802 /* ErrorReporter.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4A9B7476172A42A700589802 /* ErrorReporter.cpp */; };
 		4A9B7479172A42A700589802 /* ErrorReporter.hpp in Headers */ = {isa = PBXBuildFile; fileRef = 4A9B7477172A42A700589802 /* ErrorReporter.hpp */; };
-		4A9B747C172A45E000589802 /* ErrorReporter.h in Headers */ = {isa = PBXBuildFile; fileRef = 4A9B747A172A45E000589802 /* ErrorReporter.h */; };
-		4A9B747D172A45E000589802 /* ErrorReporter.mm in Sources */ = {isa = PBXBuildFile; fileRef = 4A9B747B172A45E000589802 /* ErrorReporter.mm */; };
-		4A9B747E172A4AED00589802 /* libMissive.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 4A9B740A172A166E00589802 /* libMissive.a */; };
-		4A9B7481172A619D00589802 /* Publisher.h in Headers */ = {isa = PBXBuildFile; fileRef = 4A9B747F172A619D00589802 /* Publisher.h */; };
-		4A9B7482172A619D00589802 /* Publisher.mm in Sources */ = {isa = PBXBuildFile; fileRef = 4A9B7480172A619D00589802 /* Publisher.mm */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		4A9B73F5172A158E00589802 /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
-		4A9B73F8172A158E00589802 /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
-		4A9B73F9172A158E00589802 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
-		4A9B73FA172A158E00589802 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		4A196661178D9D730035C78B /* NetPublisher.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = NetPublisher.cpp; sourceTree = "<group>"; };
+		4A196662178D9D730035C78B /* NetPublisher.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NetPublisher.h; sourceTree = "<group>"; };
 		4A9B740A172A166E00589802 /* libMissive.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libMissive.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		4A9B7413172A16D200589802 /* Dispatcher.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Dispatcher.cpp; sourceTree = "<group>"; };
 		4A9B7414172A16D200589802 /* Dispatcher.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = Dispatcher.hpp; sourceTree = "<group>"; };
@@ -45,25 +29,8 @@
 		4A9B7418172A191D00589802 /* Context.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = Context.hpp; sourceTree = "<group>"; };
 		4A9B741B172A20D400589802 /* DispatchThread.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = DispatchThread.cpp; sourceTree = "<group>"; };
 		4A9B741C172A20D400589802 /* DispatchThread.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = DispatchThread.hpp; sourceTree = "<group>"; };
-		4A9B743E172A265300589802 /* libMissiveObjc.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libMissiveObjc.a; sourceTree = BUILT_PRODUCTS_DIR; };
-		4A9B7442172A265300589802 /* MissiveObjc-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "MissiveObjc-Prefix.pch"; sourceTree = "<group>"; };
-		4A9B744B172A26E000589802 /* Dispatcher.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Dispatcher.h; sourceTree = "<group>"; };
-		4A9B744C172A26E000589802 /* Dispatcher.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = Dispatcher.mm; sourceTree = "<group>"; };
-		4A9B745A172A2BDF00589802 /* Missive Test App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Missive Test App.app"; sourceTree = BUILT_PRODUCTS_DIR; };
-		4A9B745E172A2BDF00589802 /* Missive Test App-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Missive Test App-Info.plist"; sourceTree = "<group>"; };
-		4A9B7460172A2BDF00589802 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
-		4A9B7462172A2BDF00589802 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		4A9B7464172A2BDF00589802 /* Missive Test App-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Missive Test App-Prefix.pch"; sourceTree = "<group>"; };
-		4A9B7466172A2BDF00589802 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.rtf; name = en; path = en.lproj/Credits.rtf; sourceTree = "<group>"; };
-		4A9B7468172A2BDF00589802 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
-		4A9B7469172A2BDF00589802 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		4A9B746C172A2BDF00589802 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/MainMenu.xib; sourceTree = "<group>"; };
 		4A9B7476172A42A700589802 /* ErrorReporter.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ErrorReporter.cpp; sourceTree = "<group>"; };
 		4A9B7477172A42A700589802 /* ErrorReporter.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = ErrorReporter.hpp; sourceTree = "<group>"; };
-		4A9B747A172A45E000589802 /* ErrorReporter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ErrorReporter.h; sourceTree = "<group>"; };
-		4A9B747B172A45E000589802 /* ErrorReporter.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = ErrorReporter.mm; sourceTree = "<group>"; };
-		4A9B747F172A619D00589802 /* Publisher.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Publisher.h; sourceTree = "<group>"; };
-		4A9B7480172A619D00589802 /* Publisher.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = Publisher.mm; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -74,25 +41,6 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		4A9B743B172A265300589802 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				4A9B7449172A267300589802 /* libMissive.a in Frameworks */,
-				4A9B743F172A265300589802 /* Cocoa.framework in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		4A9B7457172A2BDF00589802 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				4A9B747E172A4AED00589802 /* libMissive.a in Frameworks */,
-				4A9B7471172A2DB000589802 /* libMissiveObjc.a in Frameworks */,
-				4A9B745B172A2BDF00589802 /* Cocoa.framework in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -100,9 +48,6 @@
 			isa = PBXGroup;
 			children = (
 				4A9B7412172A16D200589802 /* core */,
-				4A9B7440172A265300589802 /* MissiveObjc */,
-				4A9B745C172A2BDF00589802 /* Missive Test App */,
-				4A9B73F4172A158E00589802 /* Frameworks */,
 				4A9B73F3172A158E00589802 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -111,29 +56,8 @@
 			isa = PBXGroup;
 			children = (
 				4A9B740A172A166E00589802 /* libMissive.a */,
-				4A9B743E172A265300589802 /* libMissiveObjc.a */,
-				4A9B745A172A2BDF00589802 /* Missive Test App.app */,
 			);
 			name = Products;
-			sourceTree = "<group>";
-		};
-		4A9B73F4172A158E00589802 /* Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-				4A9B73F5172A158E00589802 /* Cocoa.framework */,
-				4A9B73F7172A158E00589802 /* Other Frameworks */,
-			);
-			name = Frameworks;
-			sourceTree = "<group>";
-		};
-		4A9B73F7172A158E00589802 /* Other Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-				4A9B73F8172A158E00589802 /* AppKit.framework */,
-				4A9B73F9172A158E00589802 /* CoreData.framework */,
-				4A9B73FA172A158E00589802 /* Foundation.framework */,
-			);
-			name = "Other Frameworks";
 			sourceTree = "<group>";
 		};
 		4A9B7412172A16D200589802 /* core */ = {
@@ -147,53 +71,10 @@
 				4A9B741C172A20D400589802 /* DispatchThread.hpp */,
 				4A9B7476172A42A700589802 /* ErrorReporter.cpp */,
 				4A9B7477172A42A700589802 /* ErrorReporter.hpp */,
+				4A196661178D9D730035C78B /* NetPublisher.cpp */,
+				4A196662178D9D730035C78B /* NetPublisher.h */,
 			);
 			path = core;
-			sourceTree = "<group>";
-		};
-		4A9B7440172A265300589802 /* MissiveObjc */ = {
-			isa = PBXGroup;
-			children = (
-				4A9B7441172A265300589802 /* Supporting Files */,
-				4A9B744B172A26E000589802 /* Dispatcher.h */,
-				4A9B744C172A26E000589802 /* Dispatcher.mm */,
-				4A9B747A172A45E000589802 /* ErrorReporter.h */,
-				4A9B747B172A45E000589802 /* ErrorReporter.mm */,
-				4A9B747F172A619D00589802 /* Publisher.h */,
-				4A9B7480172A619D00589802 /* Publisher.mm */,
-			);
-			path = MissiveObjc;
-			sourceTree = "<group>";
-		};
-		4A9B7441172A265300589802 /* Supporting Files */ = {
-			isa = PBXGroup;
-			children = (
-				4A9B7442172A265300589802 /* MissiveObjc-Prefix.pch */,
-			);
-			name = "Supporting Files";
-			sourceTree = "<group>";
-		};
-		4A9B745C172A2BDF00589802 /* Missive Test App */ = {
-			isa = PBXGroup;
-			children = (
-				4A9B7468172A2BDF00589802 /* AppDelegate.h */,
-				4A9B7469172A2BDF00589802 /* AppDelegate.m */,
-				4A9B746B172A2BDF00589802 /* MainMenu.xib */,
-				4A9B745D172A2BDF00589802 /* Supporting Files */,
-			);
-			path = "Missive Test App";
-			sourceTree = "<group>";
-		};
-		4A9B745D172A2BDF00589802 /* Supporting Files */ = {
-			isa = PBXGroup;
-			children = (
-				4A9B745E172A2BDF00589802 /* Missive Test App-Info.plist */,
-				4A9B745F172A2BDF00589802 /* InfoPlist.strings */,
-				4A9B7462172A2BDF00589802 /* main.m */,
-				4A9B7464172A2BDF00589802 /* Missive Test App-Prefix.pch */,
-				4A9B7465172A2BDF00589802 /* Credits.rtf */,
-			);
-			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -207,16 +88,7 @@
 				4A9B741A172A191D00589802 /* Context.hpp in Headers */,
 				4A9B741E172A20D400589802 /* DispatchThread.hpp in Headers */,
 				4A9B7479172A42A700589802 /* ErrorReporter.hpp in Headers */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		4A9B743C172A265300589802 /* Headers */ = {
-			isa = PBXHeadersBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				4A9B744D172A26E000589802 /* Dispatcher.h in Headers */,
-				4A9B747C172A45E000589802 /* ErrorReporter.h in Headers */,
-				4A9B7481172A619D00589802 /* Publisher.h in Headers */,
+				4A196664178D9D730035C78B /* NetPublisher.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -240,40 +112,6 @@
 			productReference = 4A9B740A172A166E00589802 /* libMissive.a */;
 			productType = "com.apple.product-type.library.static";
 		};
-		4A9B743D172A265300589802 /* MissiveObjc */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 4A9B7446172A265300589802 /* Build configuration list for PBXNativeTarget "MissiveObjc" */;
-			buildPhases = (
-				4A9B743A172A265300589802 /* Sources */,
-				4A9B743B172A265300589802 /* Frameworks */,
-				4A9B743C172A265300589802 /* Headers */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-			);
-			name = MissiveObjc;
-			productName = MissiveObjc;
-			productReference = 4A9B743E172A265300589802 /* libMissiveObjc.a */;
-			productType = "com.apple.product-type.library.static";
-		};
-		4A9B7459172A2BDF00589802 /* Missive Test App */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 4A9B746E172A2BDF00589802 /* Build configuration list for PBXNativeTarget "Missive Test App" */;
-			buildPhases = (
-				4A9B7456172A2BDF00589802 /* Sources */,
-				4A9B7457172A2BDF00589802 /* Frameworks */,
-				4A9B7458172A2BDF00589802 /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-			);
-			name = "Missive Test App";
-			productName = "Missive Test App";
-			productReference = 4A9B745A172A2BDF00589802 /* Missive Test App.app */;
-			productType = "com.apple.product-type.application";
-		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -296,24 +134,9 @@
 			projectRoot = "";
 			targets = (
 				4A9B7409172A166E00589802 /* Missive */,
-				4A9B743D172A265300589802 /* MissiveObjc */,
-				4A9B7459172A2BDF00589802 /* Missive Test App */,
 			);
 		};
 /* End PBXProject section */
-
-/* Begin PBXResourcesBuildPhase section */
-		4A9B7458172A2BDF00589802 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				4A9B7461172A2BDF00589802 /* InfoPlist.strings in Resources */,
-				4A9B7467172A2BDF00589802 /* Credits.rtf in Resources */,
-				4A9B746D172A2BDF00589802 /* MainMenu.xib in Resources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-/* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		4A9B7406172A166E00589802 /* Sources */ = {
@@ -324,56 +147,11 @@
 				4A9B7419172A191D00589802 /* Context.cpp in Sources */,
 				4A9B741D172A20D400589802 /* DispatchThread.cpp in Sources */,
 				4A9B7478172A42A700589802 /* ErrorReporter.cpp in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		4A9B743A172A265300589802 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				4A9B744E172A26E000589802 /* Dispatcher.mm in Sources */,
-				4A9B747D172A45E000589802 /* ErrorReporter.mm in Sources */,
-				4A9B7482172A619D00589802 /* Publisher.mm in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		4A9B7456172A2BDF00589802 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				4A9B7463172A2BDF00589802 /* main.m in Sources */,
-				4A9B746A172A2BDF00589802 /* AppDelegate.m in Sources */,
+				4A196663178D9D730035C78B /* NetPublisher.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
-
-/* Begin PBXVariantGroup section */
-		4A9B745F172A2BDF00589802 /* InfoPlist.strings */ = {
-			isa = PBXVariantGroup;
-			children = (
-				4A9B7460172A2BDF00589802 /* en */,
-			);
-			name = InfoPlist.strings;
-			sourceTree = "<group>";
-		};
-		4A9B7465172A2BDF00589802 /* Credits.rtf */ = {
-			isa = PBXVariantGroup;
-			children = (
-				4A9B7466172A2BDF00589802 /* en */,
-			);
-			name = Credits.rtf;
-			sourceTree = "<group>";
-		};
-		4A9B746B172A2BDF00589802 /* MainMenu.xib */ = {
-			isa = PBXVariantGroup;
-			children = (
-				4A9B746C172A2BDF00589802 /* en */,
-			);
-			name = MainMenu.xib;
-			sourceTree = "<group>";
-		};
-/* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
 		4A9B7401172A158E00589802 /* Debug */ = {
@@ -381,6 +159,8 @@
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
+				CLANG_CXX_LANGUAGE_STANDARD = "c++0x";
+				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_OBJC_ARC = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
 				CLANG_WARN_EMPTY_BODY = YES;
@@ -389,6 +169,7 @@
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				GCC_C_LANGUAGE_STANDARD = c11;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
 				GCC_OPTIMIZATION_LEVEL = 0;
@@ -412,6 +193,8 @@
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
+				CLANG_CXX_LANGUAGE_STANDARD = "c++0x";
+				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_OBJC_ARC = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
 				CLANG_WARN_EMPTY_BODY = YES;
@@ -420,6 +203,7 @@
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				COPY_PHASE_STRIP = YES;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				GCC_C_LANGUAGE_STANDARD = c11;
 				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
@@ -458,66 +242,6 @@
 			};
 			name = Release;
 		};
-		4A9B7447172A265300589802 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "MissiveObjc/MissiveObjc-Prefix.pch";
-				HEADER_SEARCH_PATHS = /usr/local/include;
-				LIBRARY_SEARCH_PATHS = /usr/local/lib;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-			};
-			name = Debug;
-		};
-		4A9B7448172A265300589802 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "MissiveObjc/MissiveObjc-Prefix.pch";
-				HEADER_SEARCH_PATHS = /usr/local/include;
-				LIBRARY_SEARCH_PATHS = /usr/local/lib;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-			};
-			name = Release;
-		};
-		4A9B746F172A2BDF00589802 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				COMBINE_HIDPI_IMAGES = YES;
-				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "Missive Test App/Missive Test App-Prefix.pch";
-				INFOPLIST_FILE = "Missive Test App/Missive Test App-Info.plist";
-				LIBRARY_SEARCH_PATHS = /usr/local/lib;
-				OTHER_LDFLAGS = (
-					"-lboost_thread-mt",
-					"-lboost_system-mt",
-					"-lstdc++",
-					"-lc++abi",
-				);
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				WRAPPER_EXTENSION = app;
-			};
-			name = Debug;
-		};
-		4A9B7470172A2BDF00589802 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				COMBINE_HIDPI_IMAGES = YES;
-				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "Missive Test App/Missive Test App-Prefix.pch";
-				INFOPLIST_FILE = "Missive Test App/Missive Test App-Info.plist";
-				LIBRARY_SEARCH_PATHS = /usr/local/lib;
-				OTHER_LDFLAGS = (
-					"-lboost_thread-mt",
-					"-lboost_system-mt",
-					"-lstdc++",
-					"-lc++abi",
-				);
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				WRAPPER_EXTENSION = app;
-			};
-			name = Release;
-		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -538,22 +262,6 @@
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
-		};
-		4A9B7446172A265300589802 /* Build configuration list for PBXNativeTarget "MissiveObjc" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				4A9B7447172A265300589802 /* Debug */,
-				4A9B7448172A265300589802 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-		};
-		4A9B746E172A2BDF00589802 /* Build configuration list for PBXNativeTarget "Missive Test App" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				4A9B746F172A2BDF00589802 /* Debug */,
-				4A9B7470172A2BDF00589802 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
 		};
 /* End XCConfigurationList section */
 	};

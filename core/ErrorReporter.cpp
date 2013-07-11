@@ -11,7 +11,7 @@
 
 // other headers within the project
 #include "Context.hpp"
-#include "DispatchThread.hpp"
+#include "Dispatcher.hpp"
 
 // system and library headers
 #include <boost/thread/once.hpp>
@@ -29,12 +29,8 @@ namespace
 	boost::thread* errorReporterThreadHandle = NULL;
 	void errorReporterThread()
 	{
-		const std::string publisherEndpoint(Missive::DispatchThread::getPublisherEndpoint());
-		Missive::Context context;
-		
-		void* socket = zmq_socket(context.getContext(), ZMQ_SUB);
-		zmq_connect(socket, publisherEndpoint.c_str());
-		zmq_setsockopt(socket, ZMQ_SUBSCRIBE, NULL, 0);
+		Missive::Dispatcher& dispatcher = Missive::Context::sharedContext().getDispatcher();
+		void *socket = dispatcher.subscribe();
 		
 		char buffer[4096];
 		while (true) {
@@ -44,7 +40,8 @@ namespace
 				std::cerr << message << std::endl;
 			}
 		}
-		zmq_close(socket);
+		
+		dispatcher.unsubscribe(socket);
 	}
 	
 	boost::once_flag errorReporterStartedFlag;

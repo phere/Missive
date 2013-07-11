@@ -36,15 +36,15 @@ namespace
 	};
 	boost::thread_specific_ptr<ZMQSocketWrapper> dispatchSocket;
 	
-	void* getDispatchSocket()
+	void* getDispatchSocket(void *context, Missive::detail::DispatchThread *dispatchThread)
 	{
-		const std::string dispatchEndpoint(Missive::DispatchThread::getDispatchEndpoint());
-		
-		Missive::Context context;
 		ZMQSocketWrapper *wrapper = dispatchSocket.get();
 		if (wrapper == NULL) {
 			wrapper = new ZMQSocketWrapper;
-			wrapper->socket = zmq_socket(context.getContext(), ZMQ_PUSH);
+			
+			const std::string dispatchEndpoint(dispatchThread->getDispatchEndpoint());			
+			
+			wrapper->socket = zmq_socket(context, ZMQ_PUSH);
 			zmq_connect(wrapper->socket, dispatchEndpoint.c_str());
 			dispatchSocket.reset(wrapper);
 		}
@@ -54,8 +54,29 @@ namespace
 
 //-----------------------------------------------------------------------------
 // Dispatcher class implementation
+Missive::Dispatcher::Dispatcher()
+: context(zmq_ctx_new())
+, dispatchThread(new Missive::detail::DispatchThread(context))
+{
+	
+}
+
 void Missive::Dispatcher::send(std::string const& message)
 {
-	void* socket = getDispatchSocket();
+	void* socket = getDispatchSocket(context, dispatchThread);
 	zmq_send(socket, message.c_str(), message.length(), 0);
+}
+
+void *Missive::Dispatcher::subscribe()
+{
+	void *subSocket = zmq_socket(context, ZMQ_SUB);
+	zmq_connect(subSocket, dispatchThread->getPublisherEndpoint().c_str());
+	zmq_setsockopt(subSocket, ZMQ_SUBSCRIBE, NULL, 0);
+	
+	return subSocket;
+}
+
+void Missive::Dispatcher::unsubscribe(void *subscription)
+{
+	zmq_close(subscription);
 }
