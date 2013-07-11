@@ -6,9 +6,23 @@
 //  Copyright (c) 2013 Rowan James. All rights reserved.
 //
 
-#ifndef __Missive__NetPublisher__
-#define __Missive__NetPublisher__
-
-#include <iostream>
-
-#endif /* defined(__Missive__NetPublisher__) */
+namespace Missive
+{
+	class Dispatcher;
+	class NetPublisher
+	{
+	public:
+		NetPublisher(Missive::Dispatcher &dispatcher);
+		virtual ~NetPublisher();
+		
+		void run();
+		
+	private:
+		Missive::Dispatcher &dispatcher;
+		void *subSocket;
+		
+		void *pubContext;
+		void *pubSocket;
+		int port;
+	};
+}
