@@ -1,5 +1,5 @@
 //
-//  NetPublisher.h
+//  NetPublisher.hpp
 //  Missive
 //
 //  Created by Rowan James on 10/07/13.
@@ -14,6 +14,8 @@ namespace Missive
 	public:
 		NetPublisher(Missive::Dispatcher &dispatcher);
 		virtual ~NetPublisher();
+		
+		int getPort();
 		
 		void run();
 		

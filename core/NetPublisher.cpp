@@ -6,7 +6,7 @@
 //  Copyright (c) 2013 Rowan James. All rights reserved.
 //
 
-#include "NetPublisher.h"
+#include "NetPublisher.hpp"
 
 #import "Dispatcher.hpp"
 
@@ -68,4 +68,9 @@ void Missive::NetPublisher::run()
 		}
 		zmq_send(pubSocket, source, length, 0);
 	}
+}
+
+int Missive::NetPublisher::getPort()
+{
+	return port;
 }

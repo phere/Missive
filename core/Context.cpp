@@ -33,3 +33,13 @@ Missive::Context::Context()
 : dispatcher(new Missive::Dispatcher())
 {
 }
+
+Missive::Context::~Context()
+{
+	delete dispatcher;
+}
+
+Missive::Dispatcher& Missive::Context::getDispatcher()
+{
+	return *dispatcher;
+}
