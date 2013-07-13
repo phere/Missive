@@ -61,18 +61,8 @@ void Missive::detail::DispatchThread::main()
 		launched = true;
 		launchedCondition.notify_all();
 	}
-
-	char buffer[4096];
-	while (true) {
-		int result = zmq_recv(dispatchReceiveSocket, buffer, sizeof(buffer), 0);
-		if (result < 1) {
-			continue;
-		}
-		size_t msgSize = (size_t)result;
-		if (msgSize > 0) {
-			zmq_send(dispatchPubSocket, buffer, std::min(msgSize, sizeof(buffer)), 0);
-		}
-	}
+	
+	zmq_proxy(dispatchReceiveSocket, dispatchPubSocket, nullptr);
 }
 
 std::string Missive::detail::DispatchThread::getDispatchEndpoint()

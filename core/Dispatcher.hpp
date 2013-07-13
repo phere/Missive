@@ -21,10 +21,15 @@ namespace Missive
 	public:
 		static Dispatcher& sharedInstance();
 		
+		// front-end (client) interface
 		void send(std::string const& message);
 		
+		// back-end (library) interface
 		void *subscribe();
 		void unsubscribe(void *subscription);
+		
+		void *open_socket(int type);
+		void close_socket(void *socket);
 		
 	protected:
 		

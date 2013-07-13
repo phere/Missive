@@ -94,3 +94,13 @@ void Missive::Dispatcher::unsubscribe(void *subscription)
 {
 	zmq_close(subscription);
 }
+
+void *Missive::Dispatcher::open_socket(int type)
+{
+	return zmq_socket(context, type);
+}
+
+void Missive::Dispatcher::close_socket(void *socket)
+{
+	zmq_close(socket);
+}

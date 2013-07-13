@@ -21,9 +21,8 @@ namespace Missive
 		
 	private:
 		Missive::Dispatcher &dispatcher;
-		void *subSocket;
 		
-		void *pubContext;
+		void *subSocket;
 		void *pubSocket;
 		int port;
 	};

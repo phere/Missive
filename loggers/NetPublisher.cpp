@@ -16,11 +16,10 @@
 Missive::NetPublisher::NetPublisher(Missive::Dispatcher &dispatcher_)
 : dispatcher(dispatcher_)
 , subSocket(nullptr)
-, pubContext(zmq_ctx_new())
 , pubSocket(nullptr)
 , port(0)
 {
-	pubSocket = zmq_socket(pubContext, ZMQ_PUB);
+	pubSocket = dispatcher.open_socket(ZMQ_PUB);
 	
 	zmq_bind(pubSocket, "tcp://*:*");
 	
@@ -42,38 +41,14 @@ Missive::NetPublisher::NetPublisher(Missive::Dispatcher &dispatcher_)
 Missive::NetPublisher::~NetPublisher()
 {
 	dispatcher.unsubscribe(subSocket);
-
-	zmq_close(pubSocket);
-	
-	zmq_ctx_destroy(pubContext);
+	dispatcher.close_socket(pubSocket);
 }
 
 void Missive::NetPublisher::run()
 {
 	subSocket = dispatcher.subscribe();
 	
-	while (true) {
-		zmq_msg_t messageIn;
-		zmq_msg_init(&messageIn);
-		int result = zmq_msg_recv(&messageIn, subSocket, 0);
-		if (result < 1) {
-			std::cerr << "Error; size = " << result << "\t errno:" << errno << std::endl;
-			continue;
-		}
-	
-		size_t length = zmq_msg_size(&messageIn);
-		void *source = zmq_msg_data(&messageIn);
-		
-		while (zmq_msg_more(&messageIn)) {
-			zmq_send(pubSocket, source, length, ZMQ_SNDMORE);
-			
-			zmq_msg_init(&messageIn);
-			zmq_msg_recv(&messageIn, subSocket, ZMQ_RCVMORE);
-			length = zmq_msg_size(&messageIn);
-			source = zmq_msg_data(&messageIn);
-		}
-		zmq_send(pubSocket, source, length, 0);
-	}
+	zmq_proxy(subSocket, pubSocket, nullptr);
 }
 
 int Missive::NetPublisher::getPort()
