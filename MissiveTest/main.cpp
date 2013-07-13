@@ -11,13 +11,26 @@
 
 #include <unistd.h>
 
+#import <thread>
 
 #import "Dispatcher.hpp"
 #import "ErrorReporter.hpp"
+#import "NetPublisher.hpp"
+
+namespace {
+	void netLogger()
+	{
+		Missive::NetPublisher netPublisher(Missive::Dispatcher::sharedInstance());
+		std::cout << "Starting NetPublisher on tcp port " << netPublisher.getPort() << std::endl;
+		netPublisher.run();
+	}
+}
 
 int main(int argc, const char * argv[])
 {
 	Missive::ErrorReporter::start();
+	
+	std::thread netPubThread(netLogger);
 	
 	int message = 0;
 	while (true) {
