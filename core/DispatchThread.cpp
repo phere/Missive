@@ -10,7 +10,6 @@
 #import "DispatchThread.hpp"
 
 // other headers within the project
-#import "Context.hpp"
 
 // system and library headers
 #include <zmq.h>

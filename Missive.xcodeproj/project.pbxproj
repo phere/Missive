@@ -11,8 +11,6 @@
 		4A196664178D9D730035C78B /* NetPublisher.hpp in Headers */ = {isa = PBXBuildFile; fileRef = 4A196662178D9D730035C78B /* NetPublisher.hpp */; };
 		4A9B7415172A16D200589802 /* Dispatcher.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4A9B7413172A16D200589802 /* Dispatcher.cpp */; };
 		4A9B7416172A16D200589802 /* Dispatcher.hpp in Headers */ = {isa = PBXBuildFile; fileRef = 4A9B7414172A16D200589802 /* Dispatcher.hpp */; };
-		4A9B7419172A191D00589802 /* Context.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4A9B7417172A191D00589802 /* Context.cpp */; };
-		4A9B741A172A191D00589802 /* Context.hpp in Headers */ = {isa = PBXBuildFile; fileRef = 4A9B7418172A191D00589802 /* Context.hpp */; };
 		4A9B741D172A20D400589802 /* DispatchThread.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4A9B741B172A20D400589802 /* DispatchThread.cpp */; };
 		4A9B741E172A20D400589802 /* DispatchThread.hpp in Headers */ = {isa = PBXBuildFile; fileRef = 4A9B741C172A20D400589802 /* DispatchThread.hpp */; };
 		4A9B7478172A42A700589802 /* ErrorReporter.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4A9B7476172A42A700589802 /* ErrorReporter.cpp */; };
@@ -25,8 +23,6 @@
 		4A9B740A172A166E00589802 /* libMissive.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libMissive.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		4A9B7413172A16D200589802 /* Dispatcher.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Dispatcher.cpp; sourceTree = "<group>"; };
 		4A9B7414172A16D200589802 /* Dispatcher.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = Dispatcher.hpp; sourceTree = "<group>"; };
-		4A9B7417172A191D00589802 /* Context.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Context.cpp; sourceTree = "<group>"; };
-		4A9B7418172A191D00589802 /* Context.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = Context.hpp; sourceTree = "<group>"; };
 		4A9B741B172A20D400589802 /* DispatchThread.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = DispatchThread.cpp; sourceTree = "<group>"; };
 		4A9B741C172A20D400589802 /* DispatchThread.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = DispatchThread.hpp; sourceTree = "<group>"; };
 		4A9B7476172A42A700589802 /* ErrorReporter.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ErrorReporter.cpp; sourceTree = "<group>"; };
@@ -63,8 +59,6 @@
 		4A9B7412172A16D200589802 /* core */ = {
 			isa = PBXGroup;
 			children = (
-				4A9B7417172A191D00589802 /* Context.cpp */,
-				4A9B7418172A191D00589802 /* Context.hpp */,
 				4A9B7413172A16D200589802 /* Dispatcher.cpp */,
 				4A9B7414172A16D200589802 /* Dispatcher.hpp */,
 				4A9B741B172A20D400589802 /* DispatchThread.cpp */,
@@ -85,7 +79,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				4A9B7416172A16D200589802 /* Dispatcher.hpp in Headers */,
-				4A9B741A172A191D00589802 /* Context.hpp in Headers */,
 				4A9B741E172A20D400589802 /* DispatchThread.hpp in Headers */,
 				4A9B7479172A42A700589802 /* ErrorReporter.hpp in Headers */,
 				4A196664178D9D730035C78B /* NetPublisher.hpp in Headers */,
@@ -144,7 +137,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				4A9B7415172A16D200589802 /* Dispatcher.cpp in Sources */,
-				4A9B7419172A191D00589802 /* Context.cpp in Sources */,
 				4A9B741D172A20D400589802 /* DispatchThread.cpp in Sources */,
 				4A9B7478172A42A700589802 /* ErrorReporter.cpp in Sources */,
 				4A196663178D9D730035C78B /* NetPublisher.cpp in Sources */,

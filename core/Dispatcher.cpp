@@ -10,7 +10,6 @@
 #import "Dispatcher.hpp"
 
 // other headers within the project
-#include "Context.hpp"
 #include "DispatchThread.hpp"
 
 // system and library headers
@@ -51,6 +50,12 @@ namespace
 		}
 		return wrapper->socket;
 	}
+}
+
+Missive::Dispatcher& Missive::Dispatcher::sharedInstance()
+{
+	static Missive::Dispatcher instance;
+	return instance;
 }
 
 //-----------------------------------------------------------------------------

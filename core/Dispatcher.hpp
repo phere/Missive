@@ -19,7 +19,7 @@ namespace Missive
 	class Dispatcher
 	{
 	public:
-		Dispatcher();
+		static Dispatcher& sharedInstance();
 		
 		void send(std::string const& message);
 		
@@ -29,6 +29,8 @@ namespace Missive
 	protected:
 		
 	private:
+		Dispatcher();
+		
 		void *context;
 		Missive::detail::DispatchThread *dispatchThread;
 	};

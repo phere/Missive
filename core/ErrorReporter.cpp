@@ -10,7 +10,6 @@
 #import "ErrorReporter.hpp"
 
 // other headers within the project
-#include "Context.hpp"
 #include "Dispatcher.hpp"
 
 // system and library headers
@@ -30,7 +29,7 @@ namespace
 	std::thread* errorReporterThreadHandle = NULL;
 	void errorReporterThread()
 	{
-		Missive::Dispatcher& dispatcher = Missive::Context::sharedContext().getDispatcher();
+		Missive::Dispatcher& dispatcher = Missive::Dispatcher::sharedInstance();
 		void *socket = dispatcher.subscribe();
 		
 		while (true) {
