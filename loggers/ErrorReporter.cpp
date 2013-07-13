@@ -35,6 +35,7 @@ namespace
 		while (true) {
 			size_t part = 0;
 			zmq_msg_t messageIn;
+			zmq_msg_init(&messageIn);
 			zmq_msg_recv(&messageIn, socket, 0); ++part;
 			
 			size_t length = zmq_msg_size(&messageIn);
@@ -45,6 +46,7 @@ namespace
 				std::cerr << "part " << part << ":\t";
 				std::cerr << message << std::endl;
 				
+				zmq_msg_init(&messageIn);
 				zmq_msg_recv(&messageIn, socket, ZMQ_RCVMORE); ++part;
 				length = zmq_msg_size(&messageIn);
 				source = zmq_msg_data(&messageIn);
