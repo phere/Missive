@@ -7,26 +7,26 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		4A196663178D9D730035C78B /* NetPublisher.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4A196661178D9D730035C78B /* NetPublisher.cpp */; };
-		4A196664178D9D730035C78B /* NetPublisher.hpp in Headers */ = {isa = PBXBuildFile; fileRef = 4A196662178D9D730035C78B /* NetPublisher.hpp */; };
+		4A196A84179183370035C78B /* ErrorReporter.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4A196A80179183370035C78B /* ErrorReporter.cpp */; };
+		4A196A85179183370035C78B /* ErrorReporter.hpp in Headers */ = {isa = PBXBuildFile; fileRef = 4A196A81179183370035C78B /* ErrorReporter.hpp */; };
+		4A196A86179183370035C78B /* NetPublisher.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4A196A82179183370035C78B /* NetPublisher.cpp */; };
+		4A196A87179183370035C78B /* NetPublisher.hpp in Headers */ = {isa = PBXBuildFile; fileRef = 4A196A83179183370035C78B /* NetPublisher.hpp */; };
 		4A9B7415172A16D200589802 /* Dispatcher.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4A9B7413172A16D200589802 /* Dispatcher.cpp */; };
 		4A9B7416172A16D200589802 /* Dispatcher.hpp in Headers */ = {isa = PBXBuildFile; fileRef = 4A9B7414172A16D200589802 /* Dispatcher.hpp */; };
 		4A9B741D172A20D400589802 /* DispatchThread.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4A9B741B172A20D400589802 /* DispatchThread.cpp */; };
 		4A9B741E172A20D400589802 /* DispatchThread.hpp in Headers */ = {isa = PBXBuildFile; fileRef = 4A9B741C172A20D400589802 /* DispatchThread.hpp */; };
-		4A9B7478172A42A700589802 /* ErrorReporter.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4A9B7476172A42A700589802 /* ErrorReporter.cpp */; };
-		4A9B7479172A42A700589802 /* ErrorReporter.hpp in Headers */ = {isa = PBXBuildFile; fileRef = 4A9B7477172A42A700589802 /* ErrorReporter.hpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		4A196661178D9D730035C78B /* NetPublisher.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = NetPublisher.cpp; sourceTree = "<group>"; };
-		4A196662178D9D730035C78B /* NetPublisher.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = NetPublisher.hpp; sourceTree = "<group>"; };
+		4A196A80179183370035C78B /* ErrorReporter.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ErrorReporter.cpp; sourceTree = "<group>"; };
+		4A196A81179183370035C78B /* ErrorReporter.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = ErrorReporter.hpp; sourceTree = "<group>"; };
+		4A196A82179183370035C78B /* NetPublisher.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = NetPublisher.cpp; sourceTree = "<group>"; };
+		4A196A83179183370035C78B /* NetPublisher.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = NetPublisher.hpp; sourceTree = "<group>"; };
 		4A9B740A172A166E00589802 /* libMissive.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libMissive.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		4A9B7413172A16D200589802 /* Dispatcher.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Dispatcher.cpp; sourceTree = "<group>"; };
 		4A9B7414172A16D200589802 /* Dispatcher.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = Dispatcher.hpp; sourceTree = "<group>"; };
 		4A9B741B172A20D400589802 /* DispatchThread.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = DispatchThread.cpp; sourceTree = "<group>"; };
 		4A9B741C172A20D400589802 /* DispatchThread.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = DispatchThread.hpp; sourceTree = "<group>"; };
-		4A9B7476172A42A700589802 /* ErrorReporter.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ErrorReporter.cpp; sourceTree = "<group>"; };
-		4A9B7477172A42A700589802 /* ErrorReporter.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = ErrorReporter.hpp; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -40,10 +40,22 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		4A196A7F179183370035C78B /* loggers */ = {
+			isa = PBXGroup;
+			children = (
+				4A196A80179183370035C78B /* ErrorReporter.cpp */,
+				4A196A81179183370035C78B /* ErrorReporter.hpp */,
+				4A196A82179183370035C78B /* NetPublisher.cpp */,
+				4A196A83179183370035C78B /* NetPublisher.hpp */,
+			);
+			path = loggers;
+			sourceTree = "<group>";
+		};
 		4A9B73E9172A158E00589802 = {
 			isa = PBXGroup;
 			children = (
 				4A9B7412172A16D200589802 /* core */,
+				4A196A7F179183370035C78B /* loggers */,
 				4A9B73F3172A158E00589802 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -63,10 +75,6 @@
 				4A9B7414172A16D200589802 /* Dispatcher.hpp */,
 				4A9B741B172A20D400589802 /* DispatchThread.cpp */,
 				4A9B741C172A20D400589802 /* DispatchThread.hpp */,
-				4A9B7476172A42A700589802 /* ErrorReporter.cpp */,
-				4A9B7477172A42A700589802 /* ErrorReporter.hpp */,
-				4A196661178D9D730035C78B /* NetPublisher.cpp */,
-				4A196662178D9D730035C78B /* NetPublisher.hpp */,
 			);
 			path = core;
 			sourceTree = "<group>";
@@ -80,8 +88,8 @@
 			files = (
 				4A9B7416172A16D200589802 /* Dispatcher.hpp in Headers */,
 				4A9B741E172A20D400589802 /* DispatchThread.hpp in Headers */,
-				4A9B7479172A42A700589802 /* ErrorReporter.hpp in Headers */,
-				4A196664178D9D730035C78B /* NetPublisher.hpp in Headers */,
+				4A196A85179183370035C78B /* ErrorReporter.hpp in Headers */,
+				4A196A87179183370035C78B /* NetPublisher.hpp in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -138,8 +146,8 @@
 			files = (
 				4A9B7415172A16D200589802 /* Dispatcher.cpp in Sources */,
 				4A9B741D172A20D400589802 /* DispatchThread.cpp in Sources */,
-				4A9B7478172A42A700589802 /* ErrorReporter.cpp in Sources */,
-				4A196663178D9D730035C78B /* NetPublisher.cpp in Sources */,
+				4A196A84179183370035C78B /* ErrorReporter.cpp in Sources */,
+				4A196A86179183370035C78B /* NetPublisher.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
