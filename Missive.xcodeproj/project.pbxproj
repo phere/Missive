@@ -16,6 +16,10 @@
 		4A196A971791848C0035C78B /* libMissive.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 4A9B740A172A166E00589802 /* libMissive.a */; };
 		4A196A9E179186500035C78B /* Logger.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4A196A9C179186500035C78B /* Logger.cpp */; };
 		4A196A9F179186500035C78B /* Logger.hpp in Headers */ = {isa = PBXBuildFile; fileRef = 4A196A9D179186500035C78B /* Logger.hpp */; };
+		4A196AA217924B570035C78B /* Message.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4A196AA017924B560035C78B /* Message.cpp */; };
+		4A196AA317924B570035C78B /* Message.hpp in Headers */ = {isa = PBXBuildFile; fileRef = 4A196AA117924B570035C78B /* Message.hpp */; };
+		4A196AA617924B9D0035C78B /* MessagePart.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4A196AA417924B9D0035C78B /* MessagePart.cpp */; };
+		4A196AA717924B9D0035C78B /* MessagePart.hpp in Headers */ = {isa = PBXBuildFile; fileRef = 4A196AA517924B9D0035C78B /* MessagePart.hpp */; };
 		4A9B7415172A16D200589802 /* Dispatcher.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4A9B7413172A16D200589802 /* Dispatcher.cpp */; };
 		4A9B7416172A16D200589802 /* Dispatcher.hpp in Headers */ = {isa = PBXBuildFile; fileRef = 4A9B7414172A16D200589802 /* Dispatcher.hpp */; };
 		4A9B741D172A20D400589802 /* DispatchThread.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4A9B741B172A20D400589802 /* DispatchThread.cpp */; };
@@ -55,6 +59,10 @@
 		4A196A90179183C70035C78B /* MissiveTest.1 */ = {isa = PBXFileReference; lastKnownFileType = text.man; path = MissiveTest.1; sourceTree = "<group>"; };
 		4A196A9C179186500035C78B /* Logger.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Logger.cpp; sourceTree = "<group>"; };
 		4A196A9D179186500035C78B /* Logger.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = Logger.hpp; sourceTree = "<group>"; };
+		4A196AA017924B560035C78B /* Message.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Message.cpp; sourceTree = "<group>"; };
+		4A196AA117924B570035C78B /* Message.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = Message.hpp; sourceTree = "<group>"; };
+		4A196AA417924B9D0035C78B /* MessagePart.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = MessagePart.cpp; sourceTree = "<group>"; };
+		4A196AA517924B9D0035C78B /* MessagePart.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = MessagePart.hpp; sourceTree = "<group>"; };
 		4A9B740A172A166E00589802 /* libMissive.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libMissive.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		4A9B7413172A16D200589802 /* Dispatcher.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Dispatcher.cpp; sourceTree = "<group>"; };
 		4A9B7414172A16D200589802 /* Dispatcher.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = Dispatcher.hpp; sourceTree = "<group>"; };
@@ -129,6 +137,10 @@
 				4A9B7414172A16D200589802 /* Dispatcher.hpp */,
 				4A9B741B172A20D400589802 /* DispatchThread.cpp */,
 				4A9B741C172A20D400589802 /* DispatchThread.hpp */,
+				4A196AA017924B560035C78B /* Message.cpp */,
+				4A196AA117924B570035C78B /* Message.hpp */,
+				4A196AA417924B9D0035C78B /* MessagePart.cpp */,
+				4A196AA517924B9D0035C78B /* MessagePart.hpp */,
 			);
 			path = core;
 			sourceTree = "<group>";
@@ -145,6 +157,8 @@
 				4A196A85179183370035C78B /* ErrorReporter.hpp in Headers */,
 				4A196A87179183370035C78B /* NetPublisher.hpp in Headers */,
 				4A196A9F179186500035C78B /* Logger.hpp in Headers */,
+				4A196AA317924B570035C78B /* Message.hpp in Headers */,
+				4A196AA717924B9D0035C78B /* MessagePart.hpp in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -231,6 +245,8 @@
 				4A196A84179183370035C78B /* ErrorReporter.cpp in Sources */,
 				4A196A86179183370035C78B /* NetPublisher.cpp in Sources */,
 				4A196A9E179186500035C78B /* Logger.cpp in Sources */,
+				4A196AA217924B570035C78B /* Message.cpp in Sources */,
+				4A196AA617924B9D0035C78B /* MessagePart.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -355,6 +371,7 @@
 				4A196A94179183C70035C78B /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		4A9B73ED172A158E00589802 /* Build configuration list for PBXProject "Missive" */ = {
 			isa = XCConfigurationList;

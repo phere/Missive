@@ -10,11 +10,11 @@
 
 namespace Missive
 {
-	class Context;
 	namespace detail
 	{
 		class DispatchThread;
 	}
+	class Message;
 	
 	class Dispatcher
 	{
@@ -22,7 +22,7 @@ namespace Missive
 		static Dispatcher& sharedInstance();
 		
 		// front-end (client) interface
-		void send(std::string const& message);
+		void send(Message &&message);
 		
 		// back-end (library) interface
 		void *subscribe();

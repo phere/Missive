@@ -10,6 +10,7 @@
 #import "Dispatcher.hpp"
 
 // other headers within the project
+#include "Message.hpp"
 #include "DispatchThread.hpp"
 
 // system and library headers
@@ -67,10 +68,15 @@ Missive::Dispatcher::Dispatcher()
 	
 }
 
-void Missive::Dispatcher::send(std::string const& message)
+void Missive::Dispatcher::send(Missive::Message &&message)
 {
 	void* socket = getDispatchSocket(context, dispatchThread);
-	zmq_send(socket, message.c_str(), message.length(), 0);
+	
+	while (!message.empty()) {
+		Missive::MessagePart part(message.pop());
+		int flags = message.empty() ? 0 : ZMQ_SNDMORE;
+		zmq_send(socket, part.getData(), part.length(), flags);
+	}
 }
 
 void *Missive::Dispatcher::subscribe()

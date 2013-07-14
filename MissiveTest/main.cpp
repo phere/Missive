@@ -13,6 +13,7 @@
 
 #import <thread>
 
+#import "Message.hpp"
 #import "Dispatcher.hpp"
 #import "ErrorReporter.hpp"
 #import "NetPublisher.hpp"
@@ -36,7 +37,8 @@ int main(int argc, const char * argv[])
 	while (true) {
 		std::ostringstream os;
 		os << "Test message #" << message++;
-		Missive::Dispatcher::sharedInstance().send(os.str());
+		
+		Missive::Dispatcher::sharedInstance().send(Missive::Message(os.str()));
 		sleep(1);
 	}
 	return 0;
